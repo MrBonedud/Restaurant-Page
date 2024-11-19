@@ -1,0 +1,262 @@
+/* Import Inter font from Google Fonts for consistent typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap');
+
+/* Global CSS Variables for consistent theming and easy maintenance */
+:root {
+    --font-color: #eee;
+    --font-color-dark: #aaa;
+    --border-color: #222;
+    --background-light: rgba(0, 0, 0, 0.6);
+    --background-light-hover: rgba(99, 99, 99, 0.4);
+    --background-dark: rgba(0, 0, 0, 0.9);
+    --transition-speed: 0.3s;
+}
+
+/* CSS Reset - Ensures consistent styling across browsers */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/* Base HTML settings */
+html {
+    /* Sets base font size to 10px (62.5% of default 16px) for easier rem calculations */
+    font-size: 62.5%;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* Body styles with background image and overlay */
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.6rem;
+    color: var(--font-color);
+    background-color: #333;
+    /* Creates dark overlay on background image for better text readability */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('./images/restaurant.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Typography defaults for headers */
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+}
+
+/* Content container styles */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding-bottom: 4rem;
+}
+
+/* Header styles */
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 2rem;
+    background-color: var(--background-dark);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Restaurant name styling */
+.restaurant-name {
+    margin-bottom: 2rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 5.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    color: var(--font-color);
+    text-align: center;
+}
+
+/* Navigation buttons container */
+.nav-buttons {
+    display: flex;
+    gap: 2rem;
+}
+
+/* Individual navigation button styling */
+.button-nav {
+    padding: 1.5rem 3rem;
+    font-size: 2rem;
+    font-weight: 400;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--font-color);
+    transition: transform var(--transition-speed), border-bottom var(--transition-speed);
+}
+
+/* Active state for navigation buttons */
+.button-nav.active {
+    border-bottom: 2px solid var(--font-color);
+}
+
+/* Hover effect for navigation buttons */
+.button-nav:hover {
+    transform: translateY(-10%);
+}
+
+/* Main content container */
+.main {
+    max-width: 80rem;
+    padding: 4rem;
+    margin: 6rem auto;
+    background-color: var(--background-light);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Home page specific styles */
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    animation: fadeIn 1.5s;
+}
+
+/* Home page image styling */
+.home img {
+    width: 100%;
+    max-width: 50rem;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Home page text styling */
+.home p {
+    font-size: 2rem;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* Menu page grid layout */
+.menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 4rem;
+    animation: fadeIn 1.5s;
+}
+
+/* Individual menu item card styling */
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    background-color: var(--background-light);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: transform var(--transition-speed), background-color var(--transition-speed);
+}
+
+/* Menu item hover effects */
+.menu-item:hover {
+    transform: translateY(-5px);
+    background-color: var(--background-light-hover);
+}
+
+/* Menu item title styling */
+.menu-item h2 {
+    margin-bottom: 1.5rem;
+    font-size: 2.4rem;
+    text-align: center;
+}
+
+/* Menu item description styling */
+.menu-item p {
+    font-size: 1.6rem;
+    text-align: center;
+    color: var(--font-color-dark);
+}
+
+/* Contact/About page container styles */
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    animation: fadeIn 1.5s;
+}
+
+/* Contact/About page text styling */
+.contact p {
+    font-size: 1.8rem;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* Fade in animation keyframes */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive design - Tablet and smaller screens */
+@media (max-width: 768px) {
+    html {
+        font-size: 57.5%;
+    }
+
+    .restaurant-name {
+        font-size: 4.2rem;
+    }
+
+    .main {
+        margin: 3rem 2rem;
+        padding: 2rem;
+    }
+
+    .menu {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-buttons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* Responsive design - Mobile screens */
+@media (max-width: 480px) {
+    .restaurant-name {
+        font-size: 3.6rem;
+    }
+
+    .button-nav {
+        padding: 1rem 2rem;
+        font-size: 1.8rem;
+    }
+
+    .home img {
+        width: 90%;
+    }
+}
